@@ -3,6 +3,8 @@ const logger = require('morgan');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
+const passport = require('passport');
+
 
 const indexRoutes = require('./routes/index');
 
@@ -11,6 +13,7 @@ const app = express();
 app.set('view engine', 'ejs');
 require('dotenv').config();
 require('./config/database');
+require('./config/passport');
 
 app.use(logger('dev'));
 app.use(methodOverride('_method'));
@@ -22,6 +25,9 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use('/', indexRoutes);
 

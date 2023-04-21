@@ -1,5 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 
 const indexRoutes = require('./routes/index');
@@ -14,6 +16,12 @@ app.use(logger('dev'));
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true
+}));
 
 app.use('/', indexRoutes);
 

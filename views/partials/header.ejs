@@ -5,9 +5,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">HOME</a>
                 </li>
+                <% if (user) { %>
+                    <a href="/profile" class="nav-link">PROFILE</a>
+                    <a href="/photos/add" class="nav-link">CREATE</a>
+                    <a href="/profile/saved" class="nav-link">SAVED</a>
+                    <a href="/profile/notifications" class="nav-link">NOTIFICATIONS</a>
+                    <a href="/logout" class="nav-link">LOG OUT</a>
+                <% } else { %>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">LOGIN</a>
+                    <a class="nav-link" href="/auth/google">LOG IN</a>
                 </li>
+                <% } %>
             </ul>
         </div>
     </nav>

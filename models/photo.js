@@ -5,14 +5,15 @@ require('mongoose-type-url');
 const photoSchema = new Schema({
     title: { type: String, required: true},
     url: { type: String, required: true},
-    like: {type: Number},
+    like: [],
     authorId: {
         type: Schema.Types.ObjectId,
         ref: 'User',
     },
     authorName: {
         type: String,
-    }
+    }, 
+    saved: [],
 }, {
     timestamps: true
 });

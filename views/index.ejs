@@ -12,10 +12,10 @@
                                 <p><%= p.authorName %></p>
                                 <p><%= p.title %></p>
                                 <div><i class="fa-regular fa-heart"></i></i></div>
-                                <% if (user.id === p.authorId) { %>
+                                <div><i class="fa-regular fa-bookmark"></i></div>
+                                <% if (p.authorId.equals(user._id)) { %>
                                     <div><i class="fa-solid fa-trash"></i></i></div>
                                 <% } %>
-                                <div><i class="fa-regular fa-bookmark"></i></div>
                             </div>
                         <% }) %>
                     <% } else { %>

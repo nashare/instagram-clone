@@ -11,10 +11,28 @@
                                 <img src="<%= p.url %>">
                                 <p><%= p.authorName %></p>
                                 <p><%= p.title %></p>
-                                <button type="submit"><i class="fa-regular fa-heart"></i></button>
-                                <button type="submit"><i class="fa-regular fa-bookmark"></i></button>
-                                <% if (p.authorId.equals(user._id)) { %>
-                                    <button type="submit"><i class="fa-solid fa-trash"></i></i></button>
+                                <% if (p.like.includes(user._id)) { %>
+                                    <form  method="POST" action="/photos/<%= p._id %>/unlike?_method=PUT">
+                                        <button type="submit"><i class="fa-solid fa-heart"></i></button>
+                                    </form>
+                                <% } else { %>
+                                    <form method="POST" action="/photos/<%= p._id %>/like?_method=PUT">
+                                        <button type="submit"><i class="fa-regular fa-heart"></i></button>
+                                    </form>
+                                <% } %>
+                                <% if (user.saved.includes(p._id)) { %>
+                                    <form  method="POST" action="/photos/<%= p._id %>/unsave?_method=PUT">
+                                        <button type="submit"><i class="fa-solid fa-bookmark"></i></button>
+                                    </form>
+                                <% } else { %>
+                                    <form method="POST" action="/photos/<%= p._id %>/save?_method=PUT">
+                                        <button type="submit"><i class="fa-regular fa-bookmark"></i></button>
+                                    </form>
+                                <% } %>
+                                <% if (p.authorId == user._id) { %>
+                                    <form method="POST" action="/photos/<%= p._id %>/delete?_method=delete">
+                                        <button type="submit"><i class="fa-solid fa-trash"></i></i></button>
+                                    </form>
                                 <% } %>
                                 <a href="/photos/<%= p._id %>"><button type="submit"><i class="fa-regular fa-pen"></i></i></button></a>
                             </div>

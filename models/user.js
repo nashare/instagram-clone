@@ -9,6 +9,10 @@ const userSchema = new Schema({
     },
     email: String,
     avatar: String,
+    saved: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Photo',
+    }],
 }, {
     timestamps: true
 });

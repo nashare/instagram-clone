@@ -5,6 +5,36 @@
     <body class="d-flex flex-column min-vh-100">
         <%- include('../partials/header') %>
         <h1>Hi <%= user.name %>!</h1>
+            <% if(photos.length) { %>
+                <% photos.forEach(p=> { %>
+                    <div>
+                        <img src="<%= p.url %>">
+                        <p><%= p.title %></p>
+                        <% if (p.like.includes(user._id)) { %>
+                            <form  method="POST" action="/photos/<%= p._id %>/unlike?_method=PUT">
+                                <button type="submit"><i class="fa-solid fa-heart"></i></button>
+                            </form>
+                        <% } else { %>
+                            <form method="POST" action="/photos/<%= p._id %>/like?_method=PUT">
+                                <button type="submit"><i class="fa-regular fa-heart"></i></button>
+                            </form>
+                        <% } %>
+                        <% if (user.saved.includes(p._id)) { %>
+                            <form  method="POST" action="/photos/<%= p._id %>/unsave?_method=PUT">
+                                <button type="submit"><i class="fa-solid fa-bookmark"></i></button>
+                            </form>
+                        <% } else { %>
+                            <form method="POST" action="/photos/<%= p._id %>/save?_method=PUT">
+                                <button type="submit"><i class="fa-regular fa-bookmark"></i></button>
+                            </form>
+                        <% } %>
+                        <form method="POST" action="/photos/<%= p._id %>/delete?_method=delete">
+                            <button type="submit"><i class="fa-solid fa-trash"></i></i></button>
+                        </form>
+                        <a href="/photos/<%= p._id %>"><button type="submit"><i class="fa-regular fa-pen"></i></i></button></a>
+                    </div>
+                <% }) %>
+            <% } %>
         <%- include('../partials/footer') %>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>

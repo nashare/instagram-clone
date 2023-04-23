@@ -9,5 +9,7 @@ router.put('/:id/unlike', photosController.unlike);
 router.delete('/:id/delete', photosController.delete);
 router.put('/:id/save', photosController.save);
 router.put('/:id/unsave', photosController.unsave);
+router.get('/:id', photosController.show);
+
 
 module.exports = router;

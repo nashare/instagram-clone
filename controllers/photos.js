@@ -42,15 +42,10 @@ async function unlike(req, res) {
 
 async function save(req, res) {
     try {
-        console.log("inside save");
-        const userOne = await User.findById(req.user._id);
-        console.log(userOne);
         await User.updateOne(
             { _id: req.user._id },
             { $push: { saved: req.params.id } }
         )
-        const userTwo = await User.findById(req.user._id);
-        console.log(userTwo);
         res.redirect('/');
     } catch (error) {
         console.log(error);
@@ -78,6 +73,15 @@ async function deletePhoto(req, res) {
     }
 }
 
+async function show(req, res) {
+    try {
+        const photo = await Photo.findById(req.params.id);
+        res.render('photos/show', {title: "Add Comments", photo});
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     new: newPhoto,
     create,
@@ -85,5 +89,6 @@ module.exports = {
     unlike,
     delete: deletePhoto,
     save,
-    unsave
+    unsave,
+    show
 };

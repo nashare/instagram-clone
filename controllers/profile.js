@@ -1,5 +1,5 @@
 const Photo = require('../models/photo');
-const User = require('../models/photo');
+const User = require('../models/user');
 
 async function home(req, res) {
     try {
@@ -12,9 +12,9 @@ async function home(req, res) {
 
 async function saved(req, res) {
     try {
-        const user = await User.findById(req.user._id).populate('saved');
-        console.log(user);
-        //res.render('profile/saved', { title: "My Collection", photos });
+        const photos = await User.findById(req.user._id).populate("saved");
+        console.log(photos);
+        res.render('profile/saved', { title: "My Collection", photos: photos.saved });
     } catch (error) {
         console.log(error);
     }

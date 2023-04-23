@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<%- include('../partials/head') %>
+    <body class="d-flex flex-column min-vh-100">
+        <div>
+            <img src="<%= photo.url %>">
+            <p><%= photo.authorName %></p>
+            <p><%= photo.title %></p>
+            <% if (photo.like.includes(user._id)) { %>
+                <form  method="POST" action="/photos/<%= photo._id %>/unlike?_method=PUT">
+                    <button type="submit"><i class="fa-solid fa-heart"></i></button>
+                </form>
+            <% } else { %>
+                <form method="POST" action="/photos/<%= photo._id %>/like?_method=PUT">
+                    <button type="submit"><i class="fa-regular fa-heart"></i></button>
+                </form>
+            <% } %>
+            <% if (user.saved.includes(photo._id)) { %>
+                <form  method="POST" action="/photos/<%= photo._id %>/unsave?_method=PUT">
+                    <button type="submit"><i class="fa-solid fa-bookmark"></i></button>
+                </form>
+            <% } else { %>
+                <form method="POST" action="/photos/<%= photo._id %>/save?_method=PUT">
+                    <button type="submit"><i class="fa-regular fa-bookmark"></i></button>
+                </form>
+            <% } %>
+            <% if (photo.authorId.equals(user._id)) { %>
+                <form method="POST" action="/photos/<%= photo._id %>/delete?_method=delete">
+                    <button type="submit"><i class="fa-solid fa-trash"></i></i></button>
+                </form>
+            <% } %>
+        </div>
+    </body>
+</html>

@@ -29,7 +29,7 @@
                                         <button type="submit"><i class="fa-regular fa-bookmark"></i></button>
                                     </form>
                                 <% } %>
-                                <% if (p.authorId == user._id) { %>
+                                <% if (p.authorId.equals(user._id)) { %>
                                     <form method="POST" action="/photos/<%= p._id %>/delete?_method=delete">
                                         <button type="submit"><i class="fa-solid fa-trash"></i></i></button>
                                     </form>

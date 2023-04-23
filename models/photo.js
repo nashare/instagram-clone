@@ -9,10 +9,10 @@ const photoSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
     }],
-    authorId: [{
+    authorId: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-    }],
+    },
     authorName: {
         type: String,
     }, 

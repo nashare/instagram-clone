@@ -4,6 +4,30 @@
 
         <body class="d-flex flex-column min-vh-100">
             <%- include('./partials/header') %>
+                <% if(photos.length) { %>
+                    <% if (user) { %>
+                        <% photos.forEach(p=> { %>
+                            <div>
+                                <img src="<%= p.url %>">
+                                <p><%= p.authorName %></p>
+                                <p><%= p.title %></p>
+                                <div><i class="fa-regular fa-heart"></i></i></div>
+                                <% if (user.id === p.authorId) { %>
+                                    <div><i class="fa-solid fa-trash"></i></i></div>
+                                <% } %>
+                                <div><i class="fa-regular fa-bookmark"></i></div>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <% photos.forEach(p=> { %>
+                            <div>
+                                <img src="<%= p.url %>">
+                                <p><%= p.authorName %></p>
+                                <p><%= p.title %></p>
+                            </div>
+                        <% }) %>
+                    <% } %>
+                <% } %>
             <%- include('./partials/footer') %>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         </body>

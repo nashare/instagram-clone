@@ -8,6 +8,7 @@ const passport = require('passport');
 
 const indexRoutes = require('./routes/index');
 const profileRoutes = require('./routes/profile');
+const photosRoutes = require('./routes/photos');
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRoutes);
 app.use('/profile', profileRoutes);
+app.use('/photos', photosRoutes);
 
 app.listen(3000, () => {
     console.log('express is listening on port:3000');

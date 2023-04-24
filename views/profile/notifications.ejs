@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<%- include('../partials/head') %>
+
+    <body class="d-flex flex-column min-vh-100">
+        <%- include('../partials/header') %>
+        <% photos.forEach(p => { %>
+          <% if(p.comments.length) { %>
+            <p>Your Photo <%= p.title %> was commented on.</p>
+            <% p.comments.forEach(c => { %>
+              <p><%= c.authorName %> said <%= c.text %></p>
+           <% }) %>
+        <%  } %>
+        <% }); %>
+        <% photos.forEach(p => { %>
+          <% if(p.like.length) { %>
+
+            <p>Your Photo <%= p.title %> was liked by:</p>
+            <% p.like.forEach(l => { %>
+              <p><%=l.name %></p>
+            <% }) %>
+            
+        <%  } %>
+        <% }); %>
+      
+</body>
+</html>

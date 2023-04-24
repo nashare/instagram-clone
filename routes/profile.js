@@ -5,6 +5,7 @@ const profileController = require('../controllers/profile');
 router.get('/', profileController.home);
 router.get('/edit', profileController.edit);
 router.put('/edit', profileController.update);
+router.get('/notifications', profileController.notifications);
 router.get('/saved', profileController.saved);
 
 

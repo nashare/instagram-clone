@@ -20,25 +20,29 @@
                                 <% } %>
                                 <% if (p.like.includes(user._id)) { %>
                                     <form  method="POST" action="/photos/<%= p._id %>/unlike?_method=PUT">
-                                        <input type="hidden" name="page" value="page2">
+                                        <input type="hidden" name="page" value="index">
                                         <button type="submit"><i class="fa-solid fa-heart"></i></button>
                                     </form>
                                 <% } else { %>
                                     <form method="POST" action="/photos/<%= p._id %>/like?_method=PUT">
+                                        <input type="hidden" name="page" value="index">
                                         <button type="submit"><i class="fa-regular fa-heart"></i></button>
                                     </form>
                                 <% } %>
                                 <% if (user.saved.includes(p._id)) { %>
                                     <form  method="POST" action="/photos/<%= p._id %>/unsave?_method=PUT">
+                                        <input type="hidden" name="page" value="index">
                                         <button type="submit"><i class="fa-solid fa-bookmark"></i></button>
                                     </form>
                                 <% } else { %>
                                     <form method="POST" action="/photos/<%= p._id %>/save?_method=PUT">
+                                        <input type="hidden" name="page" value="index">
                                         <button type="submit"><i class="fa-regular fa-bookmark"></i></button>
                                     </form>
                                 <% } %>
                                 <% if (p.authorId.equals(user._id)) { %>
                                     <form method="POST" action="/photos/<%= p._id %>/delete?_method=delete">
+                                        <input type="hidden" name="page" value="index">
                                         <button type="submit"><i class="fa-solid fa-trash"></i></i></button>
                                     </form>
                                 <% } %>

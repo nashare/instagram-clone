@@ -23,14 +23,17 @@
                         </form>
                     <% } else { %>
                         <form method="POST" action="/photos/<%= p._id %>/like?_method=PUT">
+                            <input type="hidden" name="page" value="saved">
                             <button type="submit"><i class="fa-regular fa-heart"></i></button>
                         </form>
                     <% } %>
                     <form  method="POST" action="/photos/<%= p._id %>/unsave?_method=PUT">
+                        <input type="hidden" name="page" value="saved">
                         <button type="submit"><i class="fa-solid fa-bookmark"></i></button>
                     </form>
                     <% if (p.authorId.equals(user._id)) { %>
                         <form method="POST" action="/photos/<%= p._id %>/delete?_method=delete">
+                            <input type="hidden" name="page" value="saved">
                             <button type="submit"><i class="fa-solid fa-trash"></i></i></button>
                         </form>
                     <% } %>

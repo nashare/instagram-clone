@@ -13,7 +13,6 @@ async function home(req, res) {
 async function saved(req, res) {
     try {
         const photos = await User.findById(req.user._id).populate("saved");
-        console.log(photos);
         res.render('profile/saved', { title: "My Collection", photos: photos.saved });
     } catch (error) {
         console.log(error);

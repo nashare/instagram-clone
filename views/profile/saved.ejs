@@ -6,10 +6,19 @@
         <% if(photos.length) { %>
             <% photos.forEach(p=> { %>
                 <div>
-                    <img src="<%= p.url %>">
+                    <a href="/photos/<%= p._id %>"><img src="<%= p.url %>"></a>
                     <p><%= p.title %></p>
+                    <p><%= p.authorName %></p>
+                    <% if (p.like.length === 0) { %>
+                        <p><span>0</span> likes</p>
+                    <% } else if (p.like.length===1) { %>
+                        <p><span>1</span> like</p>
+                    <% } else { %>
+                        <p><span><%= p.like.length %></span> likes</p>
+                    <% } %>
                     <% if (p.like.includes(user._id)) { %>
                         <form  method="POST" action="/photos/<%= p._id %>/unlike?_method=PUT">
+                            <input type="hidden" name="page" value="saved">
                             <button type="submit"><i class="fa-solid fa-heart"></i></button>
                         </form>
                     <% } else { %>
@@ -17,9 +26,9 @@
                             <button type="submit"><i class="fa-regular fa-heart"></i></button>
                         </form>
                     <% } %>
-                        <form  method="POST" action="/photos/<%= p._id %>/unsave?_method=PUT">
-                            <button type="submit"><i class="fa-solid fa-bookmark"></i></button>
-                        </form>
+                    <form  method="POST" action="/photos/<%= p._id %>/unsave?_method=PUT">
+                        <button type="submit"><i class="fa-solid fa-bookmark"></i></button>
+                    </form>
                     <% if (p.authorId.equals(user._id)) { %>
                         <form method="POST" action="/photos/<%= p._id %>/delete?_method=delete">
                             <button type="submit"><i class="fa-solid fa-trash"></i></i></button>

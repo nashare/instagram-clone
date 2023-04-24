@@ -13,6 +13,7 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Photo',
     }],
+    bio: String,
 }, {
     timestamps: true
 });

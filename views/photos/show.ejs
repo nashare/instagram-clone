@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
 <%- include('../partials/head') %>
+
     <body class="d-flex flex-column min-vh-100">
+        <%- include('../partials/header') %>
         <div>
             <img src="<%= photo.url %>">
-            <p><%= photo.authorName %></p>
+            <p><%= photo.authorId.name %></p>
             <p><%= photo.title %></p>
+            <% if (photo.like.length === 0) { %>
+                <p><span>0</span> likes</p>
+            <% } else if (photo.like.length===1) { %>
+                <p><span>1</span> like</p>
+            <% } else { %>
+                <p><span><%= photo.like.length %></span> likes</p>
+            <% } %>
             <% if (photo.like.includes(user._id)) { %>
                 <form  method="POST" action="/photos/<%= photo._id %>/unlike?_method=PUT">
                     <button type="submit"><i class="fa-solid fa-heart"></i></button>
@@ -30,5 +39,7 @@
                 </form>
             <% } %>
         </div>
+        <%- include('../partials/footer') %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

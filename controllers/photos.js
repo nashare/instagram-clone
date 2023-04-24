@@ -18,6 +18,7 @@ async function create(req, res) {
 
 async function like(req, res) {
     try {
+        console.log(req.body);
         await Photo.updateOne(
             { _id: req.params.id },
             { $push: { like: req.user._id } }
@@ -75,7 +76,7 @@ async function deletePhoto(req, res) {
 
 async function show(req, res) {
     try {
-        const photo = await Photo.findById(req.params.id);
+        const photo = await Photo.findById(req.params.id).populate("authorId");
         res.render('photos/show', {title: "Add Comments", photo});
     } catch (error) {
         console.log(error);

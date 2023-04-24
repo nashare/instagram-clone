@@ -4,7 +4,7 @@ require('mongoose-type-url');
 
 const photoSchema = new Schema({
     title: { type: String, required: true},
-    url: { type: String, required: true},
+    url: { type: mongoose.SchemaTypes.Url, required: true},
     like: [{
         type: Schema.Types.ObjectId,
         ref: 'User',
@@ -13,9 +13,7 @@ const photoSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
     },
-    authorName: {
-        type: String,
-    }, 
+    authorName: { type: String }
 }, {
     timestamps: true
 });

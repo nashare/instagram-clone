@@ -18,12 +18,12 @@ async function create(req, res) {
 
 async function like(req, res) {
     try {
-        console.log(req.body);
+        const page = req.body.page;
         await Photo.updateOne(
             { _id: req.params.id },
             { $push: { like: req.user._id } }
         )
-        res.redirect('/');
+        redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
     }
@@ -31,11 +31,12 @@ async function like(req, res) {
 
 async function unlike(req, res) {
     try {
+        const page = req.body.page;
         await Photo.updateOne(
             { _id: req.params.id },
             { $pull: { like: req.user._id } }
         )
-        res.redirect('/');
+        redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
     }
@@ -43,11 +44,12 @@ async function unlike(req, res) {
 
 async function save(req, res) {
     try {
+        const page = req.body.page;
         await User.updateOne(
             { _id: req.user._id },
             { $push: { saved: req.params.id } }
         )
-        res.redirect('/');
+        redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
     }
@@ -55,11 +57,12 @@ async function save(req, res) {
 
 async function unsave(req, res) {
     try {
+        const page = req.body.page;
         await User.updateOne(
             { _id: req.user._id },
             { $pull: { saved: req.params.id } }
         )
-        res.redirect('/');
+        redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
     }
@@ -67,8 +70,9 @@ async function unsave(req, res) {
 
 async function deletePhoto(req, res) {
     try {
+        const page = req.body.page;
         await Photo.deleteOne({ _id: req.params.id });
-        res.redirect('/');
+        redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
     }
@@ -80,6 +84,19 @@ async function show(req, res) {
         res.render('photos/show', {title: "Add Comments", photo});
     } catch (error) {
         console.log(error);
+    }
+}
+
+function redirectPage(page, res, req) {
+    switch (page) {
+        case 'index':
+            return res.redirect('/');
+        case 'saved':
+            return res.redirect('/profile/saved');
+        case 'profile':
+            return res.redirect('/profile');
+        case 'photo':
+            return res.redirect(`/photos/${req.params.id}`);
     }
 }
 

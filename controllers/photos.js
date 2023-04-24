@@ -1,6 +1,7 @@
 const Photo = require('../models/photo');
 const User = require('../models/user');
 
+
 function newPhoto(req, res) {
     res.render('photos/new', { title: "Download New Photo" });
 }
@@ -87,6 +88,20 @@ async function show(req, res) {
     }
 }
 
+async function comments(req, res){
+    try {
+        const photo = await Photo.findById(req.params.id);
+        req.body.authorId = req.user._id;
+        req.body.authorName = req.user.name;
+        photo.comments.push(req.body);
+        res.redirect(`/photos/${req.params.id}`)
+    } catch (error) {
+        
+    }
+}
+
+
+
 function redirectPage(page, res, req) {
     switch (page) {
         case 'index':
@@ -108,5 +123,6 @@ module.exports = {
     delete: deletePhoto,
     save,
     unsave,
-    show
+    show, 
+    comments
 };

@@ -6,9 +6,9 @@ require('mongoose-type-url');
 const commentSchema = new Schema({
     authorId: {type: Schema.Types.ObjectId,
     ref: 'User'},
-    text: String,
+    text: {type: String},
     authorName: {type: String},
-})
+}, {timestamps: true});
 
 
 const photoSchema = new Schema({

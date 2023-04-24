@@ -14,6 +14,7 @@ async function create(req, res) {
         res.redirect('/profile');
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'})
     }
 }
 
@@ -27,6 +28,7 @@ async function like(req, res) {
         redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 
@@ -40,6 +42,7 @@ async function unlike(req, res) {
         redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 
@@ -53,6 +56,7 @@ async function save(req, res) {
         redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 
@@ -66,6 +70,7 @@ async function unsave(req, res) {
         redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 
@@ -76,6 +81,7 @@ async function deletePhoto(req, res) {
         redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 
@@ -85,6 +91,7 @@ async function show(req, res) {
         res.render('photos/show', {title: "Add Comments", photo});
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 
@@ -94,9 +101,10 @@ async function comments(req, res){
         req.body.authorId = req.user._id;
         req.body.authorName = req.user.name;
         photo.comments.push(req.body);
+        await photo.save();
         res.redirect(`/photos/${req.params.id}`)
     } catch (error) {
-        
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 

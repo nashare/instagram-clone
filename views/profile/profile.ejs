@@ -6,6 +6,7 @@
         <%- include('../partials/header') %>
         <img src="<%= user.avatar %>" style="width: 7vmin">
         <h1>Hi <%= user.name %>!</h1>
+        <a href="/profile/edit">Edit Profile.</a>
         <% if(photos.length) { %>
             <% photos.forEach(p=> { %>
                 <div>
@@ -44,7 +45,7 @@
                         <input type="hidden" name="page" value="profile">
                         <button type="submit"><i class="fa-solid fa-trash"></i></i></button>
                     </form>
-                    <a href="/photos/<%= p._id %>"><button type="submit"><i class="fa-regular fa-pen"></i></i></button></a>
+                    <a href="/photos/<%= p._id %>"><button type="submit"><i class="fa-solid fa-pen"></i></i></button></a>
                 </div>
             <% }) %>
         <% } %>

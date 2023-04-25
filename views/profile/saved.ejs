@@ -3,6 +3,7 @@
 <%- include('../partials/head') %>
     <body class="d-flex flex-column min-vh-100">
         <%- include('../partials/header') %>
+        <main>
         <% if(photos.length) { %>
             <% photos.forEach(p=> { %>
                 <div>
@@ -42,7 +43,7 @@
             <% }) %>
         <% } %>
         <%- include('../partials/footer') %>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        </main>
     </body>
 
 </html>

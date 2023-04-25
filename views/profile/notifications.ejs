@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
 <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+    <div>
+    <% photos.forEach(p => { %>
+      <% if(p.comments.length) { %>
+        <p>Your Photo <%= p.title %> was commented on.</p>
+        <% p.comments.forEach(c => { %>
+          <p><%= c.authorName %> said <%= c.text %></p>
+        <% }) %>
+    <%  } %>
+    <% }); %>
+    <% photos.forEach(p => { %>
+      <% if(p.like.length) { %>
 
-    <body class="d-flex flex-column min-vh-100">
-        <%- include('../partials/header') %>
-        <% photos.forEach(p => { %>
-          <% if(p.comments.length) { %>
-            <p>Your Photo <%= p.title %> was commented on.</p>
-            <% p.comments.forEach(c => { %>
-              <p><%= c.authorName %> said <%= c.text %></p>
-           <% }) %>
-        <%  } %>
-        <% }); %>
-        <% photos.forEach(p => { %>
-          <% if(p.like.length) { %>
-
-            <p>Your Photo <%= p.title %> was liked by:</p>
-            <% p.like.forEach(l => { %>
-              <p><%=l.name %></p>
-            <% }) %>
-            
-        <%  } %>
-        <% }); %>
-      
+        <p>Your Photo <%= p.title %> was liked by:</p>
+        <% p.like.forEach(l => { %>
+          <p><%=l.name %></p>
+        <% }) %>
+        
+    <%  } %>
+    <% }); %> 
+    </div>
+    <%- include('../partials/footer') %>
+    </main>
 </body>
 </html>

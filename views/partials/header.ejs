@@ -1,22 +1,16 @@
 <header >
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">HOME</a>
-                </li>
-                <% if (user) { %>
-                    <a href="/profile" class="nav-link">PROFILE</a>
-                    <a href="/photos/new" class="nav-link">CREATE</a>
-                    <a href="/profile/saved" class="nav-link">SAVED</a>
-                    <a href="/profile/notifications" class="nav-link">NOTIFICATIONS</a>
-                    <a href="/logout" class="nav-link">LOG OUT</a>
-                <% } else { %>
-                <li class="nav-item">
-                    <a class="nav-link" href="/auth/google">LOG IN</a>
-                </li>
-                <% } %>
-            </ul>
-        </div>
+    <nav>
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <% if (user) { %>
+                <li><a href="/profile">PROFILE</a></li>
+                <li><a href="/photos/new">CREATE</a></li>
+                <li><a href="/profile/saved">SAVED</a></li>
+                <li><a href="/profile/notifications">NOTIFICATIONS</a></li>
+                <li><a href="/logout">LOG OUT</a></li>
+            <% } else { %>
+                <li><a href="/auth/google">LOG IN</a></li>
+            <% } %>
+        </ul>
     </nav>
 </header>

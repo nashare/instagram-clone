@@ -108,8 +108,47 @@ async function comments(req, res){
     }
 }
 
+async function updateComment(req, res){
+    console.log(req.body);
+    const {photoId, commentId} = req.params;
+    const {text} = req.body;
+    try {
+        const photo = await Photo.findById(photoId);
+        const comment = photo.comments.id(commentId);
+        comment.text = text;
+        await photo.save();
+        res.redirect(`/photos/${photoId}`);
+    } catch (error) {
+        console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
+    }
 
+};
+async function editCommentForm(req, res){
 
+}
+async function deleteComment(req, res){
+    try {
+
+        const {photoId, commentId} = req.params;
+        Photo.findOneAndUpdate(
+  { 'comments._id': commentId },
+  { $pull: { comments: { _id: commentId } } },
+  { new: true },
+  (err, post) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(post);
+  }
+);
+        res.redirect(`/photos/${photoId}`);
+    } catch (error) {
+        console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
+    }
+}
 function redirectPage(page, res, req) {
     switch (page) {
         case 'index':
@@ -132,5 +171,8 @@ module.exports = {
     save,
     unsave,
     show, 
-    comments
+    comments,
+    updateComment,
+    editCommentForm,
+    deleteComment
 };

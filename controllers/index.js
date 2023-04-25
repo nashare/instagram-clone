@@ -7,6 +7,7 @@ async function home(req, res) {
         res.render('index', { title: "Instagram Clone", photos });
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 

@@ -2,6 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 require('mongoose-type-url');
 
+
+const commentSchema = new Schema({
+    authorId: {type: Schema.Types.ObjectId,
+    ref: 'User'},
+    text: {type: String},
+    authorName: {type: String},
+}, {timestamps: true});
+
+
 const photoSchema = new Schema({
     title: { type: String, required: true},
     url: { type: mongoose.SchemaTypes.Url, required: true},
@@ -13,7 +22,8 @@ const photoSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
     },
-    authorName: { type: String }
+    authorName: { type: String },
+    comments: [commentSchema],
 }, {
     timestamps: true
 });

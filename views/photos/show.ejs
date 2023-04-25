@@ -44,6 +44,19 @@
                 </form>
             <% } %>
         </div>
+        <form method="POST" action="/photos/<%= photo._id%>/comments">
+            <lable>Add Comment
+            <textarea name="text" required></textarea>
+            </lable>
+            <button type="submit">Submit</button>
+        </form>
+        <% console.log(photo)%>
+        <% if (photo.comments.length) { %>
+               <% photo.comments.forEach(c => { %>
+                    <p><%= c.authorName %></p>
+                    <p><%= c.text %></p>
+                <% }) %>
+        <% } %>
         <%- include('../partials/footer') %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>

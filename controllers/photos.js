@@ -1,6 +1,7 @@
 const Photo = require('../models/photo');
 const User = require('../models/user');
 
+
 function newPhoto(req, res) {
     res.render('photos/new', { title: "Download New Photo" });
 }
@@ -13,6 +14,7 @@ async function create(req, res) {
         res.redirect('/profile');
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'})
     }
 }
 
@@ -26,6 +28,7 @@ async function like(req, res) {
         redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 
@@ -39,6 +42,7 @@ async function unlike(req, res) {
         redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 
@@ -52,6 +56,7 @@ async function save(req, res) {
         redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 
@@ -65,6 +70,7 @@ async function unsave(req, res) {
         redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 
@@ -75,6 +81,7 @@ async function deletePhoto(req, res) {
         redirectPage(page, res, req);
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
 
@@ -84,8 +91,24 @@ async function show(req, res) {
         res.render('photos/show', {title: "Add Comments", photo});
     } catch (error) {
         console.log(error);
+        res.render('error', {title: 'Something Went Wrong'});
     }
 }
+
+async function comments(req, res){
+    try {
+        const photo = await Photo.findById(req.params.id);
+        req.body.authorId = req.user._id;
+        req.body.authorName = req.user.name;
+        photo.comments.push(req.body);
+        await photo.save();
+        res.redirect(`/photos/${req.params.id}`)
+    } catch (error) {
+        res.render('error', {title: 'Something Went Wrong'});
+    }
+}
+
+
 
 function redirectPage(page, res, req) {
     switch (page) {
@@ -108,5 +131,6 @@ module.exports = {
     delete: deletePhoto,
     save,
     unsave,
-    show
+    show, 
+    comments
 };

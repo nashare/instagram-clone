@@ -13,7 +13,7 @@
                 <% p.comments.forEach(c=> { %>
                   <div class="row">
                     <div class="col">
-                      <img src="<%= p.url %>" class="img-fluid" style="max-width: 10vmin">
+                      <img src="<%= p.url %>" class="img-fluid image-margin" style="max-width: 10vmin">
                       <p class="p-inline"><strong>
                           <%= c.authorName %>
                         </strong> commented: <%= c.text %>
@@ -28,7 +28,7 @@
                             <% p.like.forEach(l=> { %>
                               <div class="row">
                                 <div class="col">
-                                  <img src="<%= p.url %>" class="img-fluid" style="max-width: 10vmin">
+                                  <img src="<%= p.url %>" class="img-fluid image-margin" style="max-width: 10vmin">
                                   <p class="p-inline"><strong>
                                       <%=l.name %>
                                     </strong> liked your photo.</p>

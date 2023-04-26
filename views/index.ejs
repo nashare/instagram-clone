@@ -9,17 +9,10 @@
                         <% photos.forEach(p=> { %>
                             <div class="row justify-content-center">
                                 <div class="col-md-4 mx-auto mb-2">
-                                <a href="/photos/<%= p._id %>"><img src="<%= p.url %>" style="max-width: 100%; width: 100%;"></a>
+                                <a href="/photos/<%= p._id %>"><img src="<%= p.url %>" class="image-index"></a>
                                 <p>
                                     <%= p.title %> by <strong><%= p.authorId.name %></strong>
                                 </p>
-                                <% if (p.like.length === 0) { %>
-                                    <p><span>0</span> likes</p>
-                                <% } else if (p.like.length===1) { %>
-                                    <p><span>1</span> like</p>
-                                <% } else { %>
-                                    <p><span><%= p.like.length %></span> likes</p>
-                                <% } %>
                                 <% if (p.like.includes(user._id)) { %>
                                     <form  method="POST" action="/photos/<%= p._id %>/unlike?_method=PUT">
                                         <input type="hidden" name="page" value="index">
@@ -49,6 +42,13 @@
                                     </form>
                                 <% } %>
                                 <a href="/photos/<%= p._id %>"><button type="submit" class="btn btn-light no-border-color"><i class="fa-solid fa-pen"></i></button></a>
+                                <% if (p.like.length === 0) { %>
+                                    <p class="p-inline"><span>0</span> likes</p>
+                                <% } else if (p.like.length===1) { %>
+                                    <p class="p-inline"><span>1</span> like</p>
+                                <% } else { %>
+                                    <p class="p-inline"><span><%= p.like.length %></span> likes</p>
+                                <% } %>
                             </div>
                             </div>
                         <% }) %>
@@ -56,7 +56,7 @@
                         <% photos.forEach(p=> { %>
                             <div class="row justify-content-center">
                                 <div class="col-md-4 mx-auto mb-2">
-                                    <a href="/photos/<%= p._id %>"><img src="<%= p.url %>" style="max-width: 100%; width: 100%;"></a>
+                                    <a href="/photos/<%= p._id %>"><img src="<%= p.url %>" class="image-index"></a>
                                     <p>
                                         <%= p.title %> by <strong><%= p.authorId.name %></strong>
                                     </p>

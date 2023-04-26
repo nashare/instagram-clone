@@ -4,9 +4,21 @@
 <body>
     <%- include('../partials/header') %>
     <main>
-        <img src="<%= user.avatar %>" style="width: 10vmin">
-        <h1>Hi <%= user.name %>!</h1>
-        <a href="/profile/edit"><button class="btn btn-light"><i class="fa-solid fa-pen"></i></button></a>
+        <div class="container full-height container-margin">
+            <div class="row h-100">
+            <div class="col d-flex justify-content-center align-items-center">
+                <div class="d-inline-flex align-items-center">
+                <img src="<%= user.avatar %>" class="img-fluid me-2" style="width: 10vmin">
+                <h1 class="me-2">Hi <%= user.name %>!</h1>
+                <a href="/profile/edit">
+                    <button class="btn btn-light">
+                    <i class="fa-solid fa-pen"></i>
+                    </button>
+                </a>
+                </div>
+            </div>
+            </div>
+        </div>
         <% if(photos.length) { %>
             <% photos.forEach(p=> { %>
                 <div class="row justify-content-center">

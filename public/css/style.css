@@ -96,3 +96,11 @@ main {
 .footer-text {
     color: rgba(0, 0, 0, .55);
 }
+
+.container-margin {
+    margin: 5vmin;
+}
+
+.no-border-color {
+    border-color: white;
+}

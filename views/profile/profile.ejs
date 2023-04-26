@@ -6,7 +6,7 @@
     <main>
         <img src="<%= user.avatar %>" style="width: 7vmin">
         <h1>Hi <%= user.name %>!</h1>
-        <a href="/profile/edit">Edit Profile.</a>
+        <a href="/profile/edit"><button class="btn btn-light"><i class="fa-solid fa-pen"></i></button></a>
         <% if(photos.length) { %>
             <% photos.forEach(p=> { %>
                 <div class="row justify-content-center">
@@ -44,9 +44,9 @@
                     <% } %>
                     <form method="POST" action="/photos/<%= p._id %>/delete?_method=delete">
                         <input type="hidden" name="page" value="profile">
-                        <button type="submit" class="btn btn-light"><i class="fa-solid fa-trash"></i></i></button>
+                        <button type="submit" class="btn btn-light"><i class="fa-solid fa-trash"></i></button>
                     </form>
-                    <a href="/photos/<%= p._id %>"><button type="submit" class="btn btn-light"><i class="fa-solid fa-pen"></i></i></button></a>
+                    <a href="/photos/<%= p._id %>"><button class="btn btn-light"><i class="fa-solid fa-pen"></i></button></a>
                 </div>
                 </div>
             <% }) %>

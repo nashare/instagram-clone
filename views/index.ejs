@@ -45,10 +45,10 @@
                                 <% if (p.authorId.equals(user._id)) { %>
                                     <form method="POST" action="/photos/<%= p._id %>/delete?_method=delete">
                                         <input type="hidden" name="page" value="index">
-                                        <button type="submit" class="btn btn-light"><i class="fa-solid fa-trash"></i></i></button>
+                                        <button type="submit" class="btn btn-light"><i class="fa-solid fa-trash"></i></button>
                                     </form>
                                 <% } %>
-                                <a href="/photos/<%= p._id %>"><button type="submit" class="btn btn-light"><i class="fa-solid fa-pen"></i></i></button></a>
+                                <a href="/photos/<%= p._id %>"><button type="submit" class="btn btn-light"><i class="fa-solid fa-pen"></i></button></a>
                             </div>
                             </div>
                         <% }) %>

@@ -5,10 +5,10 @@
     <body>
         <%- include('../partials/header') %>
         <main>
-        <div>
-            <img src="<%= photo.url %>">
-            <p><%= photo.authorId.name %></p>
-            <p><%= photo.title %></p>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mx-auto mb-2">
+            <img src="<%= photo.url %>" style="max-width: 100%; width: 100%;">
+            <p><%= photo.title %> by <strong><%= photo.authorId.name %></strong></p>
             <% if (photo.like.length === 0) { %>
                 <p><span>0</span> likes</p>
             <% } else if (photo.like.length===1) { %>
@@ -19,32 +19,31 @@
             <% if (photo.like.includes(user._id)) { %>
                 <form  method="POST" action="/photos/<%= photo._id %>/unlike?_method=PUT">
                     <input type="hidden" name="page" value="photo">
-                    <button type="submit"><i class="fa-solid fa-heart"></i></button>
+                    <button type="submit" class="btn btn-light"><i class="fa-solid fa-heart"></i></button>
                 </form>
             <% } else { %>
                 <form method="POST" action="/photos/<%= photo._id %>/like?_method=PUT">
                     <input type="hidden" name="page" value="photo">
-                    <button type="submit"><i class="fa-regular fa-heart"></i></button>
+                    <button type="submit" class="btn btn-light"><i class="fa-regular fa-heart"></i></button>
                 </form>
             <% } %>
             <% if (user.saved.includes(photo._id)) { %>
                 <form  method="POST" action="/photos/<%= photo._id %>/unsave?_method=PUT">
                     <input type="hidden" name="page" value="photo">
-                    <button type="submit"><i class="fa-solid fa-bookmark"></i></button>
+                    <button type="submit" class="btn btn-light"><i class="fa-solid fa-bookmark"></i></button>
                 </form>
             <% } else { %>
                 <form method="POST" action="/photos/<%= photo._id %>/save?_method=PUT">
                     <input type="hidden" name="page" value="photo">
-                    <button type="submit"><i class="fa-regular fa-bookmark"></i></button>
+                    <button type="submit" class="btn btn-light"><i class="fa-regular fa-bookmark"></i></button>
                 </form>
             <% } %>
             <% if (photo.authorId.equals(user._id)) { %>
                 <form method="POST" action="/photos/<%= photo._id %>/delete?_method=delete">
                     <input type="hidden" name="page" value="photo">
-                    <button type="submit"><i class="fa-solid fa-trash"></i></i></button>
+                    <button type="submit" class="btn btn-light"><i class="fa-solid fa-trash"></i></i></button>
                 </form>
             <% } %>
-        </div>
         <form method="POST" action="/photos/<%= photo._id%>/comments">
             <lable>Add Comment
             <textarea name="text" required></textarea>
@@ -69,6 +68,8 @@
                 </form>
            <% } %>
         <% }) %>
+        </div>
+        </div>
         </main>
         <%- include('../partials/footer') %>
     </body>

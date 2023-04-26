@@ -3,19 +3,23 @@
 <%- include('../partials/head') %>
     <body>
         <%- include('../partials/header') %>
-        <main>
-        <h1>Edit Profile</h1>
-        <form method="POST" action="/profile/edit?_method=PUT">
-            <div>
-                <label for="name">Name:</label>
-                <input id="name" name="name">
+        <main class="container d-flex flex-grow-1 justify-content-center align-items-center">
+            <div class="row">
+                <div class="col-md-14">
+                    <form method="POST" action="/profile/edit?_method=PUT">
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-bold">New name:</label>
+                            <input class="form-control" id="name" name="name" value="<%= user.name %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="avatar" class="form-label fw-bold">Avatar link:</label>
+                            <input class="form-control" id="avatar" name="avatar" type="url" value="<%= user.avatar %>">
+                        </div>
+                        <button class="btn btn-light" type="submit">Update Profile</button>
+                    </form>
+                </div>
             </div>
-            <div>
-                <label for="avatar">Add a link:</label>
-                <input id="avatar" name="avatar" type="url">
-            </div>
-            <button type="submit">Change Profile</button>
-        </form>
+        </main>
         </main>
         <%- include('../partials/footer') %>
     </body>

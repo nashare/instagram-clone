@@ -14,7 +14,9 @@ async function home(req, res) {
 
 async function edit(req, res){
     try {
-        res.render('profile/edit', {title: 'My New Profile'});
+        const user = await User.findById(req.user._id);
+        console.log(user);
+        res.render('profile/edit', {title: 'My New Profile', user});
     } catch (error) {
         res.render('error', {title: "Something Went Wrong"});
     }

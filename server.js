@@ -41,6 +41,10 @@ app.use('/profile',isAuthenticated, profileRoutes);
 app.use('/photos', isAuthenticated, photosRoutes);
 app.use('/photos/:id/comments', isAuthenticated, commentsRoutes);
 
+app.use('*', (req, res) => {
+    res.render('404', { title: '404 - Page Not Found' });
+});
+
 app.listen(3000, () => {
     console.log('express is listening on port:3000');
 });

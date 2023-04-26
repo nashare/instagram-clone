@@ -85,9 +85,14 @@ main {
 
 .p-inline {
     display: inline-block;
+    margin: 2vmin;
 }
 
 .header-padding {
       padding-left: 0 !important;
       padding-right: 0 !important;
+}
+
+.footer-text {
+    color: rgba(0, 0, 0, .55);
 }

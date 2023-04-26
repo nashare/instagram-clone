@@ -3,19 +3,22 @@
 <%- include('../partials/head') %>
     <body>
         <%- include('../partials/header') %>
-        <main>
-        <h1>Download a new photo</h1>
-        <form action="/photos/new" method="POST">
-            <div>
-                <label for="title">Title:</label>
-                <input id="title" name="title" required>
+        <main class="container d-flex flex-grow-1 justify-content-center align-items-center">
+            <div class="row">
+                <div class="col-md-14">
+                    <form action="/photos/new" method="POST">
+                        <div class="mb-3">
+                            <label for="title" class="form-label fw-bold">Title:</label>
+                            <input class="form-control" id="title" name="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="url" class="form-label fw-bold">Link:</label>
+                            <input class="form-control" id="url" name="url" type="url" required>
+                        </div>
+                        <button class="btn btn-light" type="submit">Add Photo</button>
+                    </form>
+                </div>
             </div>
-            <div>
-                <label for="url">Add a link:</label>
-                <input id="url" name="url" type="url" required>
-            </div>
-            <button type="submit">Add Photo</button>
-        </form>
         </main>
         <%- include('../partials/footer') %>
     </body>

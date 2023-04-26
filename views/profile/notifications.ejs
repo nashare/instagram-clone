@@ -7,18 +7,18 @@
     <div>
     <% photos.forEach(p => { %>
       <% if(p.comments.length) { %>
-        <p>Your Photo <%= p.title %> was commented on.</p>
+        <img src="<%= p.url %>" style="max-width: 10vmin">
         <% p.comments.forEach(c => { %>
-          <p><%= c.authorName %> said <%= c.text %></p>
+          <p><strong> <%= c.authorName %></strong> commented: <%= c.text %></p>
         <% }) %>
     <%  } %>
     <% }); %>
     <% photos.forEach(p => { %>
       <% if(p.like.length) { %>
 
-        <p>Your Photo <%= p.title %> was liked by:</p>
+        <img src="<%= p.url %>" style="max-width: 10vmin">
         <% p.like.forEach(l => { %>
-          <p><%=l.name %></p>
+          <p><strong> <%=l.name %></strong> liked you photo.</p>
         <% }) %>
         
     <%  } %>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <%- include('../partials/head') %>
-
     <body>
         <%- include('../partials/header') %>
         <main>
@@ -51,23 +50,19 @@
             <button type="submit">Submit</button>
         </form>
         <% if (photo.comments.length) { %>
-               <% photo.comments.forEach(c => { %>
-                    <p><%= c.authorName %></p>
-                    <p><%= c.text %></p>
-                <% }) %>
+            <% photo.comments.forEach(c => { %>
+                <p> <%= c.authorName %></p>
+                <p> <%= c.text %></p>
+                <% if (c.authorId.equals(user._id)) { %>
+                    <a href="/photos/<%= photo._id %>/comments/<%= c._id %>/edit">
+                        <button>Edit</button>
+                    </a>
+                    <form method="POST" action="/photos/<%=photo._id %>/comments/<%= c._id %>/delete?_method=delete">
+                        <button type="submit">Delete</button>
+                    </form>
+               <% } %>
+            <% }) %> 
         <% } %>
-        <% photo.comments.forEach(c => { %>
-            <p> <%= c.authorName %></p>
-            <p> <%= c.text %></p>
-            <% if (c.authorId.equals(user._id)) { %>
-                <a href="/photos/<%= photo._id %>/comments/<%= c._id %>/edit">
-                    <button>Edit</button>
-                </a>
-                <form method="POST" action="/photos/<%=photo._id %>/comments/<%= c._id %>/delete?_method=delete">
-                    <button type="submit">Delete</button>
-                </form>
-           <% } %>
-        <% }) %>
         </div>
         </div>
         </main>

@@ -6,7 +6,7 @@
         <main>
         <div class="row justify-content-center">
             <div class="col-md-4 mx-auto mb-2">
-            <img src="<%= photo.url %>" style="max-width: 100%; width: 100%;">
+                <img src="<%= photo.url %>" style="max-width: 100%; width: 100%;">
             <p><%= photo.title %> by <strong><%= photo.authorId.name %></strong></p>
             <% if (photo.like.length === 0) { %>
                 <p><span>0</span> likes</p>

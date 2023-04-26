@@ -53,11 +53,18 @@
                     </form>
                     <a href="/photos/<%= p._id %>"><button class="btn btn-light"><i class="fa-solid fa-pen"></i></button></a>
                     <% if (p.like.length === 0) { %>
-                        <p class="p-inline"><span>0</span> likes</p>
+                        <p class="p-inline"><strong>0</strong> likes</p>
                     <% } else if (p.like.length===1) { %>
-                        <p class="p-inline"><span>1</span> like</p>
+                        <p class="p-inline"><strong>1</strong> like</p>
                     <% } else { %>
-                        <p class="p-inline"><span><%= p.like.length %></span> likes</p>
+                        <p class="p-inline"><strong><%= p.like.length %></strong> likes</p>
+                    <% } %>
+                    <% if (p.comments.length === 0) { %>
+                        <p class="p-inline"><strong>0</strong> comments</p>
+                    <% } else if (p.comments.length===1) { %>
+                        <p class="p-inline"><strong>1</strong> comment</p>
+                    <% } else { %>
+                        <p class="p-inline"><strong><%= p.comments.length %></strong> comments</p>
                     <% } %>
                 </div>
                 </div>

@@ -10,7 +10,7 @@ const indexRoutes = require('./routes/index');
 const profileRoutes = require('./routes/profile');
 const photosRoutes = require('./routes/photos');
 const commentsRoutes = require('./routes/comments');
-const isAuthenticated = require('./middleware/isAuthenticated');
+const isAuthenticated = require('./config/isAuthenticated');
 
 const app = express();
 

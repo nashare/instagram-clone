@@ -82,3 +82,12 @@ a {
 main {
     margin: 2vmin 0 7vmin 0;
 }
+
+.p-inline {
+    display: inline-block;
+}
+
+.header-padding {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+}

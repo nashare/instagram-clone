@@ -4,25 +4,42 @@
 <body>
     <%- include('../partials/header') %>
     <main>
-    <div>
-    <% photos.forEach(p => { %>
-      <% if(p.comments.length) { %>
-        <img src="<%= p.url %>" style="max-width: 10vmin">
-        <% p.comments.forEach(c => { %>
-          <p><strong> <%= c.authorName %></strong> commented: <%= c.text %></p>
-        <% }) %>
-    <%  } %>
-    <% }); %>
-    <% photos.forEach(p => { %>
-      <% if(p.like.length) { %>
-
-        <img src="<%= p.url %>" style="max-width: 10vmin">
-        <% p.like.forEach(l => { %>
-          <p><strong> <%=l.name %></strong> liked you photo.</p>
-        <% }) %>
-        
-    <%  } %>
-    <% }); %> 
+    <div class="container full-height">
+      <div class="row h-100">
+        <div class="col d-flex justify-content-center align-items-center">
+          <div>
+            <% photos.forEach(p=> { %>
+              <% if(p.comments.length) { %>
+                <% p.comments.forEach(c=> { %>
+                  <div class="row">
+                    <div class="col">
+                      <img src="<%= p.url %>" class="img-fluid" style="max-width: 10vmin">
+                      <p class="p-inline"><strong>
+                          <%= c.authorName %>
+                        </strong> commented: <%= c.text %>
+                      </p>
+                    </div>
+                  </div>
+                  <% }) %>
+                    <% } %>
+                      <% }); %>
+                        <% photos.forEach(p=> { %>
+                          <% if(p.like.length) { %>
+                            <% p.like.forEach(l=> { %>
+                              <div class="row">
+                                <div class="col">
+                                  <img src="<%= p.url %>" class="img-fluid" style="max-width: 10vmin">
+                                  <p class="p-inline"><strong>
+                                      <%=l.name %>
+                                    </strong> liked your photo.</p>
+                                </div>
+                              </div>
+                              <% }) %>
+                                <% } %>
+                                  <% }); %>
+          </div>
+        </div>
+      </div>
     </div>
     </main>
     <%- include('../partials/footer') %>

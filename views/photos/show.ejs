@@ -43,22 +43,23 @@
                     <button type="submit" class="btn btn-light"><i class="fa-solid fa-trash"></i></i></button>
                 </form>
             <% } %>
+        <br>
+        <br>
         <form method="POST" action="/photos/<%= photo._id%>/comments">
-            <lable>Add Comment
-            <textarea name="text" required></textarea>
-            </lable>
-            <button type="submit">Submit</button>
+            <label for="text" class="form-label fw-bold">Add comment:</label>
+            <input class="form-control" id="text" name="text" required>
+            <br>
+            <button type="submit" class="btn btn-light">Submit</button>
         </form>
         <% if (photo.comments.length) { %>
             <% photo.comments.forEach(c => { %>
-                <p> <%= c.authorName %></p>
-                <p> <%= c.text %></p>
+                <br>
+                <br>
+                <p><strong><%= c.authorName %>:</strong> <%= c.text %></p>
                 <% if (c.authorId.equals(user._id)) { %>
-                    <a href="/photos/<%= photo._id %>/comments/<%= c._id %>/edit">
-                        <button>Edit</button>
-                    </a>
+                    <a href="/photos/<%= photo._id %>/comments/<%= c._id %>/edit"><button class="btn btn-light"><i class="fa-solid fa-pen"></i></button></a>
                     <form method="POST" action="/photos/<%=photo._id %>/comments/<%= c._id %>/delete?_method=delete">
-                        <button type="submit">Delete</button>
+                        <button type="submit" class="btn btn-light"><i class="fa-solid fa-trash"></i></button>
                     </form>
                <% } %>
             <% }) %> 

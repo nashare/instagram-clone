@@ -3,14 +3,18 @@
 <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-    <main>
-        <h1>Edit Comment</h1>
-        <form method="POST" action="/photos/<%= photoId %>/comments/<%= comment._id %>/edit?_method=PUT">
-            <lable>Edit Comment
-            <textarea name="text" required><%= comment.text %></textarea>
-            </lable>
-            <button type="submit">Update</button>
-        </form>
+    <main class="container d-flex flex-grow-1 justify-content-center align-items-center">
+        <div class="row">
+            <div class="col-md-14">
+                <form method="POST" action="/photos/<%= photoId %>/comments/<%= comment._id %>/edit?_method=PUT">
+                    <div class="mb-3">
+                        <label for="title" class="form-label fw-bold">New text:</label>
+                        <input class="form-control" id="text" name="text" value="<%= comment.text %>" required>
+                    </div>
+                    <button type="submit" class="btn btn-light">Update Comment</button>
+                </form>
+            </div>
+        </div>
     </main>
     <%- include('../partials/footer') %>
 </body>

@@ -51,7 +51,6 @@
             </lable>
             <button type="submit">Submit</button>
         </form>
-        <% console.log(photo)%>
         <% if (photo.comments.length) { %>
                <% photo.comments.forEach(c => { %>
                     <p><%= c.authorName %></p>
@@ -62,15 +61,15 @@
             <p> <%= c.authorName %></p>
             <p> <%= c.text %></p>
             <% if (c.authorId.equals(user._id)) { %>
-                <form method="POST" action="/photos/<%=photo._id %>/comments/<%= c._id %>/edit">
-                <button type="submit">Edit</button>
-                </form>
+                <a href="/photos/<%= photo._id %>/comments/<%= c._id %>/edit">
+                    <button>Edit</button>
+                </a>
                 <form method="POST" action="/photos/<%=photo._id %>/comments/<%= c._id %>/delete?_method=delete">
                     <button type="submit">Delete</button>
-                    </form>
+                </form>
            <% } %>
         <% }) %>
-        <%- include('../partials/footer') %>
         </main>
+        <%- include('../partials/footer') %>
     </body>
 </html>

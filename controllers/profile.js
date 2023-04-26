@@ -21,7 +21,6 @@ async function edit(req, res){
 }
 async function update(req, res){
     try {
-        console.log(req.body);
         await User.updateOne(
             { _id: req.user._id },
             { $set: { name: req.body.name, avatar: req.body.avatar } }

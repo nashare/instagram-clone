@@ -6,10 +6,10 @@
         <main>
         <% if(photos.length) { %>
             <% photos.forEach(p=> { %>
-                <div>
-                    <a href="/photos/<%= p._id %>"><img src="<%= p.url %>"></a>
-                    <p><%= p.title %></p>
-                    <p><%= p.authorName %></p>
+                <div class="row justify-content-center">
+                    <div class="col-md-4 mx-auto mb-2">
+                    <a href="/photos/<%= p._id %>"><img src="<%= p.url %>" style="max-width: 100%; width: 100%;"></a>
+                    <p><%= p.title %> by <strong><%= p.authorName %></strong></p>
                     <% if (p.like.length === 0) { %>
                         <p><span>0</span> likes</p>
                     <% } else if (p.like.length===1) { %>
@@ -20,30 +20,31 @@
                     <% if (p.like.includes(user._id)) { %>
                         <form  method="POST" action="/photos/<%= p._id %>/unlike?_method=PUT">
                             <input type="hidden" name="page" value="saved">
-                            <button type="submit"><i class="fa-solid fa-heart"></i></button>
+                            <button type="submit" class="btn btn-light"><i class="fa-solid fa-heart"></i></button>
                         </form>
                     <% } else { %>
                         <form method="POST" action="/photos/<%= p._id %>/like?_method=PUT">
                             <input type="hidden" name="page" value="saved">
-                            <button type="submit"><i class="fa-regular fa-heart"></i></button>
+                            <button type="submit" class="btn btn-light"><i class="fa-regular fa-heart"></i></button>
                         </form>
                     <% } %>
                     <form  method="POST" action="/photos/<%= p._id %>/unsave?_method=PUT">
                         <input type="hidden" name="page" value="saved">
-                        <button type="submit"><i class="fa-solid fa-bookmark"></i></button>
+                        <button type="submit" class="btn btn-light"><i class="fa-solid fa-bookmark"></i></button>
                     </form>
                     <% if (p.authorId.equals(user._id)) { %>
                         <form method="POST" action="/photos/<%= p._id %>/delete?_method=delete">
                             <input type="hidden" name="page" value="saved">
-                            <button type="submit"><i class="fa-solid fa-trash"></i></i></button>
+                            <button type="submit" class="btn btn-light"><i class="fa-solid fa-trash"></i></i></button>
                         </form>
                     <% } %>
-                    <a href="/photos/<%= p._id %>"><button type="submit"><i class="fa-solid fa-pen"></i></i></button></a>
+                    <a href="/photos/<%= p._id %>"><button type="submit" class="btn btn-light"><i class="fa-solid fa-pen"></i></i></button></a>
                 </div>
+            </div>
             <% }) %>
         <% } %>
-        <%- include('../partials/footer') %>
         </main>
+        <%- include('../partials/footer') %>
     </body>
 
 </html>

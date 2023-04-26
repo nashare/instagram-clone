@@ -1,22 +1,22 @@
-body {
+/* body {
     margin: 0;
     font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-columns: 15% 85%;
 }
 
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 30vmin;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     border-right: 1px solid rgb(203, 207, 210);
 }
 
-/* Style the nav */
 nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -47,7 +47,7 @@ a:hover {
 }
 
 main {
-    margin: 5vmin 0 30vmin 5vmin;
+    margin: 5vmin;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,4 +64,20 @@ footer {
 img {
     padding: 0;
     max-width: 90vmin;
+} */
+
+button {
+    display: inline-block;
+}
+
+form {
+    display: inline-block;
+}
+
+a {
+    display: inline-block;
+}
+
+main {
+    margin: 2vmin 0 7vmin 0;
 }

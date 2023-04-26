@@ -1,15 +1,15 @@
-<header >
-    <nav>
-        <ul>
-            <li><a href="/">HOME</a></li>
+<header class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="/">HOME</a></li>
             <% if (user) { %>
-                <li><a href="/profile">PROFILE</a></li>
-                <li><a href="/photos/new">CREATE</a></li>
-                <li><a href="/profile/saved">SAVED</a></li>
-                <li><a href="/profile/notifications">NOTIFICATIONS</a></li>
-                <li><a href="/logout">LOG OUT</a></li>
+                <li class="nav-item"><a class="nav-link" href="/profile">PROFILE</a></li>
+                <li class="nav-item"><a class="nav-link" href="/photos/new">CREATE</a></li>
+                <li class="nav-item"><a class="nav-link" href="/profile/saved">SAVED</a></li>
+                <li class="nav-item"><a class="nav-link" href="/profile/notifications">NOTIFICATIONS</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout">LOG OUT</a></li>
             <% } else { %>
-                <li><a href="/auth/google">LOG IN</a></li>
+                <li class="nav-item"><a class="nav-link" href="/auth/google">LOG IN</a></li>
             <% } %>
         </ul>
     </nav>

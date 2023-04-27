@@ -41,7 +41,7 @@ The creation of an InstaGram like program where the AAU is able to see the home 
 
  
 # Instagram Clone Link
-https://gentle-ravine-13392.herokuapp.com/profile
+https://gentle-ravine-13392.herokuapp.com/
 
 # Next Steps:
 * Upload videos

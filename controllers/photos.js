@@ -78,7 +78,11 @@ async function deletePhoto(req, res) {
     try {
         const page = req.body.page;
         await Photo.deleteOne({ _id: req.params.id });
-        redirectPage(page, res, req);
+        if (page === "photo") {
+            res.redirect('/profile')
+        } else {
+            redirectPage(page, res, req);
+        }
     } catch (error) {
         console.log(error);
         res.render('error', {title: 'Something Went Wrong'});
@@ -104,7 +108,7 @@ function redirectPage(page, res, req) {
         case 'profile':
             return res.redirect('/profile');
         case 'photo':
-            return res.redirect('/profile');
+            return res.redirect(`/profile/${req.params.id}`);
     }
 }
 

@@ -108,7 +108,7 @@ function redirectPage(page, res, req) {
         case 'profile':
             return res.redirect('/profile');
         case 'photo':
-            return res.redirect(`/profile/${req.params.id}`);
+            return res.redirect(`/photos/${req.params.id}`);
     }
 }
 

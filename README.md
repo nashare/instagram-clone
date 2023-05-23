@@ -1,22 +1,22 @@
 # INSTAGRAM CLONE
 # Project Description:
-The creation of an InstaGram like program where the AAU is able to see the home page that shows several different photos which include the title of those photos, the authors of those photos, how many likes and how many comments have been made. AAU then being allowed after authentication to navigate through the program using the functions available to see their profile page, create page, saved page, notifications page, while also being able to log out.  
+The creation of an InstaGram like program where a user is able to see the home page that shows several different photos which include the title of those photos, the authors of those photos, how many likes and how many comments have been made. The user then being allowed after authentication to navigate through the program using the functions available to see their profile page, create page, saved page, notifications page, while also being able to log out.  
 
-* Looking for the AAU to be able to login in using their Google account.
+* Users can login with Google account.
 
-* After logging in they will be presented to their Home page.
+* After logging in they will be presented to their home page.
 
-* AAU they will then be able to comment or like on photos while also being able to add and delete photos.
+* Users will then be able to comment or like on photos while also being able to add and delete photos.
 
-* Give the AAU the ability to save or delete photos from their saved page.
+* Give the user the ability to save or delete photos from their saved page.
 
-* Give the AAU the ability to navigate to the notification page to see who has commented on their photos and/or liked their photos.
+* Give the user the ability to navigate to the notification page to see who has commented on their photos and/or liked their photos.
 
-* AAU on their profile page be able to change their name or avatar to meet their needs.
+* Users on their profile page be able to change their name or avatar to meet their needs.
 
-* AAU giving them the ability to add, edit, or delete any comments that they have added to a posted photo.
+* Users can add, edit, or delete any comments that they have added to a posted photo.
 
-* AAU to be able to log out and redirected to the home page.
+* Users can log out and be redirected to the home page.
 
 
 # InstaGram Clone Schema Diagram

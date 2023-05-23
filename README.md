@@ -1,6 +1,6 @@
 # INSTAGRAM CLONE
 # Project Description:
-The creation of an InstaGram like program where a user is able to see the home page that shows several different photos which include the title of those photos, the authors of those photos, how many likes and how many comments have been made. The user then being allowed after authentication to navigate through the program using the functions available to see their profile page, create page, saved page, notifications page, while also being able to log out.  
+An application similar to InstaGram enables users to access a home page displaying various photos. Each photo is accompanied by its title, the authors' names, and the number of likes and comments received. Once authenticated, users can utilize the available functions to explore different sections of the program, including their profile page, creation page, saved photos page, and notifications page. Additionally, they have the option to log out when desired.
 
 * Users can login with Google account.
 

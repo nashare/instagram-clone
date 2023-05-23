@@ -45,5 +45,5 @@ https://gentle-ravine-13392.herokuapp.com/
 
 # Next Steps:
 * Upload videos
-* Download Videos and Photos from AAU device.
-* Add #'s and locations.
+* Download Videos and Photos from a user's device
+* Add hashtags and locations

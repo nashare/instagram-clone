@@ -2,21 +2,21 @@
 # Project Description:
 An application similar to InstaGram enables users to access a home page displaying various photos. Each photo is accompanied by its title, the authors' names, and the number of likes and comments received. Once authenticated, users can utilize the available functions to explore different sections of the program, including their profile page, creation page, saved photos page, and notifications page. Additionally, they have the option to log out when desired.
 
-* Users can login with Google account.
+* Users have the option to log in using their Google account credentials.
 
-* After logging in they will be presented to their home page.
+*  Once logged in, they will be directed to their personalized home page.
 
-* Users will then be able to comment or like on photos while also being able to add and delete photos.
+*  From there, users can engage with the content by leaving comments or liking photos. They also have the ability to add new photos or delete existing ones.
 
-* Give the user the ability to save or delete photos from their saved page.
+*  A "saved" page is provided to users, where they can store their favorite photos or remove unwanted ones.
 
-* Give the user the ability to navigate to the notification page to see who has commented on their photos and/or liked their photos.
+*  By navigating to the notification page, users can stay updated on who has commented on or liked their photos.
 
-* Users on their profile page be able to change their name or avatar to meet their needs.
+*  On their profile page, users can customize their name and avatar according to their preferences.
 
-* Users can add, edit, or delete any comments that they have added to a posted photo.
+*  Users have full control over the comments they post on photos, being able to add, edit, or delete them as needed.
 
-* Users can log out and be redirected to the home page.
+*  Finally, users can log out at any time, and upon doing so, they will be redirected back to the home page.
 
 
 # InstaGram Clone Schema Diagram

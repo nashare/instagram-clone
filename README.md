@@ -1,6 +1,6 @@
 # INSTAGRAM CLONE
 # Project Description:
-[This application](https://gentle-ravine-13392.herokuapp.com/) similar to InstaGram enables users to access a home page displaying various photos. Each photo is accompanied by its title, the authors' names, and the number of likes and comments received. Once authenticated, users can utilize the available functions to explore different sections of the program, including their profile page, creation page, saved photos page, and notifications page. Additionally, they have the option to log out when desired.
+[This application](https://gentle-ravine-13392.herokuapp.com/), similar to InstaGram, enables users to access a home page displaying various photos. Each photo is accompanied by its title, the authors' names, and the number of likes and comments received. Once authenticated, users can utilize the available functions to explore different sections of the program, including their profile page, creation page, saved photos page, and notifications page. Additionally, they have the option to log out when desired.
 
 *  Users have the option to log in using their Google account credentials.
 
